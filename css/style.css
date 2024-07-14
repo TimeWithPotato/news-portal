@@ -1,0 +1,24 @@
+body{
+    font-family: "Oswald", sans-serif;
+    font-style: normal;
+}
+.navbar-icon{
+    margin-left: 73rem;
+
+}
+
+.categories-text{
+   margin-left: 10px;
+   font-size: 20px;
+}
+.nav-link.link-primary:hover{
+    background-color:rgb(238, 238, 113);
+    border-radius: 8px;
+    scale:1.2;
+    
+}
+@media only screen and (max-width: 720px){
+    .navbar-icon{
+       margin-left: 90%;
+    }
+}
