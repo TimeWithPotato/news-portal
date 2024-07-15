@@ -28,6 +28,14 @@ a{
     padding-top: 10px;
     padding-bottom: 8px;
 }
+.number-of-news-contianer>p{
+    padding-left:5px;
+    padding-top: 5px;
+    font-size: 30px;
+}
+#number-of-news>span{
+    color:red;
+}
 .sort-news-text{
     display: inline;
 }
