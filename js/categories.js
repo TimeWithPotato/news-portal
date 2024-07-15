@@ -56,11 +56,11 @@ const displayCategoryNews = newsArray => {
          <img src="${news.thumbnail_url}" alt="">
          <!-- class news-text here -->
                     <div class="news-text">
-                        <h5>${news.title}</h5>
+                        <h5 class="text-center">${news.title}</h5>
                         <p>${news.details} ...</p>
                    <!-- class news-author here -->    
                         <div class="news-author">
-                            <div>
+                            <div class="author-container">
                             <!-- Author image -->
                                 <div class="author-img-container">
                                  <img class="author-img" src="${news.author.img}" alt="">
@@ -71,7 +71,8 @@ const displayCategoryNews = newsArray => {
                                     <p>${news.author?.published_date ? news.author.published_date : 'No Published Date Found'}</p>
                                 </div>
                             </div>
-                            <div>
+                            <!-- class news-views here -->
+                            <div class="news-views">
                                 <img src="resources/carbon_view.png" alt="">
                                 <h5>${news.total_view}</h5>
                             </div>
