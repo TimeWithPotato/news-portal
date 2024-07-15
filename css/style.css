@@ -67,18 +67,25 @@ a{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 .news-text{
-    margin-left:30px;
+    margin-left:0;
 }
 .news-text>h5{
-    margin:10px;
+    margin:auto;
 }
 .news-text>p{
     margin-top:40px;
 }
 .news-author{
-    margin-top:50px;
+    margin-top:auto;
     display: flex;
     justify-content: space-between;
+}
+
+.author-img {
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 @media only screen and (max-width: 720px){
