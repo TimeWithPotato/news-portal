@@ -163,6 +163,22 @@ a{
 .rating>h5{
     font-size: 14px;
 }
+.footer-container{
+    width:100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 15px;
+    background-color: rgb(157, 210, 229);
+    position: relative;
+}
+.footer-container>h3{
+         position: absolute;
+         left:50%;
+         transform: translate(-50%,-50%);
+         font-size: 20px;
+         
+
+}
 @media only screen and (max-width: 720px){
     .navbar-icon{
         margin-left: 90%;
