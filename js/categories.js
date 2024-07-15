@@ -57,6 +57,8 @@ const displayCategoryNews = async (newsArray, category_id) => {
     const articleContainer = document.getElementById('article-container');
     articleContainer.innerHTML = ''; // Clear previous news
     newsArray.forEach(news => {
+
+        // console.log(news._id);
         i++;
         if (news.details.length > 200) {
             news.details = news.details.slice(0, 200);
@@ -88,7 +90,7 @@ const displayCategoryNews = async (newsArray, category_id) => {
                                 <h5>${news.total_view}</h5>
                             </div>
                             <div class="me-3">
-                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#newsDetailsModal">
+                                <button onclick="loadNews('${news._id}')" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#newsDetailsModal">
                                     <img src="resources/bi_arrow-right-short.png" alt="">
                                   </button>
                             </div>
