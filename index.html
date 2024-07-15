@@ -76,19 +76,8 @@
         <!-- Sort by, Today's pick, Trending -->
          <section class="mt-3 d-flex justify-content-between">
             <!-- Sort by -->
-             <div>
-                <h3 class="sort-news-text">Sorty By: </h3>
-                <!-- Drop down using bootstrap -->
-                          <li class="nav-item dropdown sort-news-container">
-                            <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Dropdown link
-                            </a>
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">default</a></li>
-                              <li><a class="dropdown-item" href="#">Sort by views</a></li>
-                            </ul>
-                          </li>
-                        </ul>
+             <div id="dropdown-container">
+          
              </div>
 
              <!-- Today's pick, trending -->
@@ -119,39 +108,27 @@
        <!-- Will add here dynamically -->
         </section>
         </div>
-        <div class="modal-footer">
-          <section class="modal-footer-container">
-            <div class="modal-author-details">
-              <!-- author details and published date -->
-              <div>
-                <img src="resources/Rectangle 19.png" alt="">
-              </div>
-              <div>
-                <h5>author name</h5>
-                <p>publish date</p>
-              </div>
-            </div>
-            <!-- total view -->
-            <div class="total-view">
-              <h5 class="text-danger">Total View</h5>
-              <p>480</p>
-            </div>
-            <!-- rating -->
-            <div class="rating">
-              <h5><span class="text-danger">Rating</span></h5>
-              <h5><span>Badge:...</span></h5>
-              <h5><span>Number:...</span></h5>
-            </div>
-          </section>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+        <!-- modal footer -->
+        <div id="modal-footer" class="modal-footer">
+
         </div>
       </div>
     </div>
   </div>
-  
+
+  <!-- Spinner -->
+   <div id="spinner" class="visually-hidden">
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+   </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/categories.js"></script>
     <script src="js/modal.js"></script>
+    <script src="js/sort.js"></script>
   </body>
 </html>

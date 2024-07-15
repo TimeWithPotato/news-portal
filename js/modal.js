@@ -29,6 +29,37 @@ const displayLoadNews = news => {
             <div>
               <p>${news.details}</p>
             </div>`;
-
     modalNewsContainer.appendChild(modalNews);
+
+    // modal footer or author details
+
+    const modalFooter = document.getElementById('modal-footer');
+    modalFooter.innerHTML = ``;
+    modalFooter.innerHTML = `          
+    <section class="modal-footer-container">
+        <div class="modal-author-details">
+              <!-- author details and published date -->
+              <div>
+                <img src="${news.author?.img}" alt="">
+              </div>
+              <div>
+                <h5>${news.author?.name ? news.author.name : 'No Name has Found'}</h5>
+                <p>${news.author?.published_date ? news.author.published_date : 'No Published Date has Found'}</p>
+              </div>
+        </div>
+            <!-- total view -->
+            <div class="total-view">
+              <h5 class="text-danger">Total View</h5>
+              <p>${news.total_view ? news.total_view : 'No Views has Found'}</p>
+            </div>
+            <!-- rating -->
+            <div class="rating">
+              <h5><span class="text-danger">Rating</span></h5>
+              <h5><span>${news.rating?.badge ? news.rating.badge : 'No Rating has Found'}</span></h5>
+              <h5><span>${news.rating?.number ? news.rating.number : 'No Rating Number has Found'}</span></h5>
+            </div>
+    </section>
+           <div id="modal-close-button">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+           </div>`;
 }

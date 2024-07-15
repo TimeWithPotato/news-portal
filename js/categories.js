@@ -40,25 +40,58 @@ const numberOfNews = async (category_id) => {
 
 //   Load the category news 
 const loadCategoryNews = async category_id => {
+    // Dropdown Toggle design
+    const dropdownContainer = document.getElementById('dropdown-container');
+    dropdownContainer.innerHTML = `   
+    <h3 class="sort-news-text">Sorty By: </h3>
+                <!-- Drop down using bootstrap -->
+            <li class="nav-item dropdown sort-news-container">
+                <a id="dropdown-toggle" class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Default
+                </a>
+                    <ul id="sort-news"class="dropdown-menu">
+                              <li><a class="dropdown-item disabled" href="#">default</a></li>
+
+                              <!-- Another li will add here from categories.js  dynamically to handle the sort by views  -->
+                    </ul>
+            </li>`;
+
+    // here need to clear the artile container to show the spinner prettier
+    const articleContainer = document.getElementById('article-container');
+    articleContainer.innerHTML = ''; 
+
+    // call the spinner
+    spinner(true);
     try {
         const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
         const res = await fetch(url);
         const data = await res.json();
-        displayCategoryNews(data.data, category_id);
+
+        setTimeout(() => {
+            displayCategoryNews(data.data, category_id);
+        }, 2000);
     }
     catch (e) {
         console.log(e);
     }
+
 }
 
 // display the category news
 const displayCategoryNews = async (newsArray, category_id) => {
+    // Add the Sort by View li
+    const ul = document.getElementById('sort-news');
+    ul.innerHTML = ``;
+    const li = document.createElement('li');
+    li.innerHTML = `<a onclick="sortNewsByViews('${category_id}')" class="dropdown-item" href="#">Sort by views</a>`
+    ul.appendChild(li);
+
     let i = 0; // for total number of news 
     const articleContainer = document.getElementById('article-container');
     articleContainer.innerHTML = ''; // Clear previous news
     newsArray.forEach(news => {
 
-        // console.log(news._id);
+        // console.log(news);
         i++;
         if (news.details.length > 200) {
             news.details = news.details.slice(0, 200);
@@ -87,7 +120,7 @@ const displayCategoryNews = async (newsArray, category_id) => {
                             <!-- class news-views here -->
                             <div class="news-views">
                                 <img src="resources/carbon_view.png" alt="">
-                                <h5>${news.total_view}</h5>
+                                <h5>${news?.total_view ? news.total_view : 'N/A'}</h5>
                             </div>
                             <div class="me-3">
                                 <button onclick="loadNews('${news._id}')" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#newsDetailsModal">
@@ -103,6 +136,21 @@ const displayCategoryNews = async (newsArray, category_id) => {
     const categoryName = await numberOfNews(category_id);
     const numberOfNewsElement = document.getElementById('number-of-news');
     numberOfNewsElement.innerHTML = `${i} items found in <span>${categoryName}</span>`;
+    
+    // stop the spinner
+    spinner(false);
 }
+
+const spinner = flag => {
+    const spinnerDiv = document.getElementById('spinner');
+    if (flag) {
+        spinnerDiv.classList.remove('visually-hidden');
+    }
+    else {
+        spinnerDiv.classList.add('visually-hidden');
+    }
+}
+
+
 
 loadCatagories();
