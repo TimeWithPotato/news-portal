@@ -71,7 +71,11 @@ const displayLoadNews = news => {
 
 const blog = () => {
     // console.log('connected');
+    const modalHeader = document.getElementById('newsDetailsModalLabel');
+    modalHeader.innerText = '';
 
+    const modalFooter = document.getElementById('modal-footer');
+    modalFooter.innerHTML = ``;
     const modalContainer = document.getElementById('modal-news-container');
     modalContainer.innerHTML =
         `
