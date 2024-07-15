@@ -152,5 +152,5 @@ const spinner = flag => {
 }
 
 
-
-loadCatagories();
+loadCatagories()
+document.addEventListener('DOMContentLoaded', loadCategoryNews('01'));
